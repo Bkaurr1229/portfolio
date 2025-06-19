@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bisman kaur - Python developer • Student</title>
+    <link rel="stylesheet" href="bisman.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item i {
+            
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: #43cea2;
+            width: 30px;
+        }
+
+        .contact-item-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+            color: #333;
+        }
+
+        .contact-item-content p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #43cea2;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-primary {
+            background:linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            color: #667eea;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            color: #764ba2;
+        }
+
+        .availability {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .availability h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .availability p {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #d4edda;
+            color: #155724;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #28a745;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .social-links {
+                gap: 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+</head>
+<body>
+    <div class="cursor-dot"></div>
+
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+<div class="section">
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="b_about.html">About</a>
+        <!-- <a href="b_services.html">Services</a> -->
+        <a href="b_portfolio.html">Portfolio</a>
+        <a href="b_contact.html">Contact</a>
+    </div>
+
+     <div class="container">
+        <div class="header">
+            <h1>Let's Connect</h1>
+            <p>Whether it's building smart web experiences, developing engaging games, working on automation, or exploring the world of cloud and AI tools — I bring a problem-solving mindset, hands-on coding skills, and a passion for learning to every project. Let’s create something amazing together.</p>
+        </div>
+
+        <div class="contact-section">
+            <div class="contact-info">
+                <h2 class="section-title">Get In Touch</h2>
+                
+                <div class="contact-item">
+                    <!-- <i class="fas fa-envelope"></i> -->
+                    <div class="contact-item-content">
+                        <h3>Email</h3>
+                        <p>bisikaur12@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-item" >
+                    <!-- <i class="fas fa-phone"></i> -->
+                    <div class="contact-item-content">
+                     <a href="www.linkedin.com/in/bisman-kaur-106442288">  
+                         <h3>LinkedIn</h3>
+                        <p>www.linkedin.com/in/bisman-kaur-106442288</p>
+                    </div>
+                   </a>
+                </div>
+
+               <div class="contact-item">
+                    <!-- <i class="fas fa-clock"></i> -->
+                     <a href="https://github.com/Bkaurr1229">
+                    <div class="contact-item-content">
+                        <h3>GitHub</h3>
+                        <p>https://github.com/Bkaurr1229</p>
+                    </div>
+                    </a>
+                </div> 
+                
+                <div class="contact-item">
+                    <!-- <i class="fas fa-map-marker-alt"></i> -->
+                    <div class="contact-item-content">
+                        <h3>Location</h3>
+                        <p> Punjab, India</p>
+                    </div>
+                </div>
+
+                
+
+                <!-- <div class="contact-item">
+                    <i class="fas fa-globe"></i>
+                    <div class="contact-item-content">
+                        <h3>Availability</h3>
+                        <p>Global - All Time Zones</p>
+                    </div>
+                </div> -->
+            </div>
+
+            
+<!-- 
+            <div class="contact-form">
+                <h2 class="section-title">Send Message</h2>
+                
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully. I'll get back to you within 24 hours.
+                </div>
+
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Company/Organization</label>
+                        <input type="text" id="company" name="company" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service Interest</label>
+                        <select id="service" name="service" class="form-control">
+                            <option value="">Select Service</option>
+                            <option value="integration">Enterprise Integration Consulting</option>
+                            <option value="b2b-edi">B2B/EDI Solutions</option>
+                            <option value="ai-automation">AI-Powered Integration</option>
+                            <option value="fintech">FinTech Development</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Project Details *</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="Tell me about your project requirements, challenges, and timeline..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div> -->
+
+        <div class="availability">
+            <h3>Current Availability</h3>
+            <p><strong>🌟 Accepting New Projects</strong></p>
+            <p>Global availability with flexible time zone accommodation</p>
+            <p>Remote collaboration with modern tools for seamless communication</p>
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                Available for Consultation
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/bisman-kaur-106442288/" class="social-link" title="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/Bkaurr1229" class="social-link" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="social-link" title="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+     </div>
+</div>
+
+<script>
+         document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const form = this;
+            const submitBtn = form.querySelector('.btn-primary');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Add loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                // Show success message
+                successMessage.style.display = 'block';
+                
+                // Reset form
+                form.reset();
+                
+                // Reset button
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                submitBtn.disabled = false;
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }, 2000);
+        });
+
+        // Add smooth hover effects
+        document.querySelectorAll('.contact-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+    <script src="bisman.js"> </script>
+</body>
+</html>
